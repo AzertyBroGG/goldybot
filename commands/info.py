@@ -22,10 +22,6 @@ class Info(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
     
-    @commands.command()
-    async def botcommands(self, ctx: commands.Context):
-        cmnds = '\n- '.join([c.name for c in self.bot.commands])
-        await ctx.send(f"```\n{cmnds}\n```")
     @bridge.bridge_command(name = 'ping', description = "Задержка бота")
     async def ping(self, ctx: bridge.BridgeContext):
         await ctx.respond(f'Задержка бота: {round(self.bot.latency*1000)/1000} секунд')

@@ -1,27 +1,6 @@
-
 import platform
-print("Запуск...") 
-print("="*10, "О системе: ", "="*10)
-uname = platform.uname()
-print(f"System: {uname.system}")
-print(f"Node Name: {uname.node}")
-print(f"Release: {uname.release}")
-print(f"Version: {uname.version}")
-print(f"Machine: {uname.machine}")
-print(f"Processor: {uname.processor}")
-## importing socket module
-import socket
-## getting the hostname by socket.gethostname() method
-hostname = socket.gethostname()
-## getting the IP address using socket.gethostbyname() method
-ip_address = socket.gethostbyname(hostname)
-## printing the hostname and ip_address
-print(f"Hostname: {hostname}")
-print(f"IP Address: {ip_address}")
-###
-import discord #Создание Клиента
-from discord.ext import commands, bridge
- #Команды
+import socket, translate
+import discord 
 from enum import Enum
 import pretty_errors
 from typing import List
@@ -29,11 +8,14 @@ import asyncio
 import datetime
 import requests, json
 from os import path
-import os #Тоже генераторы
+import os 
 import logging
+from discord.ext import commands, bridge
 pretty_errors.activate()
 from config import prefix, intents, token
+#Многоооо Импортов!
 
+trans = translate.Translator(to_lang = "ru")
 def load_exts(bot):
     for filename in os.listdir("./commands"):
          if filename.endswith(".py") and not filename.startswith('view'):
@@ -66,20 +48,7 @@ class GoldyBot(bridge.Bot):
           await ctx.message.add_reaction('❎')
         except:
           pass
+          
 bot = GoldyBot()
 load_exts(bot)
-
 #Создание бота
-### ?
-#Логи discord
-logger = logging.getLogger('discord')
-logger.setLevel(logging.INFO)
-handler = logging.FileHandler(filename='pycord.log', encoding='utf-8', mode='w')
-handler.setFormatter(logging.Formatter('%(name)s: %(message)s'))
-logger.addHandler(handler)
-
-#
-
-bot.run(token)
-
-
