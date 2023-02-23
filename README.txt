@@ -1,2 +1,0 @@
-# goldy_bot
-GoldyBot
