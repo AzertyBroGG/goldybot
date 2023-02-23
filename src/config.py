@@ -4,7 +4,7 @@ from discord.ext import commands
 from typing import List
 
 prefix = ["gg.", "gg!", "gb.", "gb!"]
-token = "OTk0MjA5MzkyNTY2MjEwNTYw.GSDIuy.XA57LSrC4k0QhCTwhfXitzdioPsCp154MbdpeM"
+token = "токен"
 #token = os.getenv('TOKEN')
 intents = discord.Intents.all()
 logs_ch = 998598317774737409
