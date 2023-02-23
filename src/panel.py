@@ -48,7 +48,7 @@ class Panel(discord.ui.View):
                         joke_t = translator.translate(js['joke'])
                         await interaction.response.send_message(joke_t, ephemeral = True)
                      
-   @discord.ui.button(label='coin', style = discord.ButtonStyle.primary)
+    @discord.ui.button(label='coin', style = discord.ButtonStyle.primary)
     async def coin(self, button, interaction):
         rand = random.randrange(0,2)
         if rand == 0:
